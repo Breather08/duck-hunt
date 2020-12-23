@@ -1,0 +1,64 @@
+@mixin flexPosition($justify-content-value: left, $align-items-value: top) {
+  display: flex;
+  justify-content: $justify-content-value;
+  align-items: $align-items-value;
+}
+
+@mixin addContent($content: 'define content') {
+  content: $content;
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  @include flexPosition(center, center);
+}
+
+@mixin option($color, $fontSize, $content) {
+  position: relative;
+
+  height: 33%;
+  width: 100%;
+
+  color: $color;
+  font-size: $fontSize;
+  &::before {
+    @include addContent($content);
+  }
+  transition: 0.5s;
+  &.active {
+    scale: 1.2;
+    color: white;
+  }
+}
+
+@mixin backPlacement($width: 0, $height: 0, $left: 0, $bottom: 0) {
+  left: $left;
+  bottom: $bottom;
+  position: absolute;
+  width: $width;
+  height: $height;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin hud-elements($left, $width) {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  left: $left;
+
+  width: $width;
+  height: 4.5vh;
+
+  border: 3px solid greenyellow;
+  border-radius: 10px;
+  background: black;
+  color: white;
+}

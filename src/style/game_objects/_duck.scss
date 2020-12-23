@@ -1,0 +1,9 @@
+.duck-container {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+
+  left: calc(50% - 25px);
+  bottom: 0;
+  z-index: -1;
+}

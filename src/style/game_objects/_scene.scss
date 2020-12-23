@@ -1,0 +1,148 @@
+@import "../constants/mixins";
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("../assets/initial/fonts/PressStart2P-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.scene {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -10;
+
+  font-family: "Press Start 2P";
+  background: rgb(83, 148, 247);
+
+  &.flying-away {
+    background: rgb(241, 198, 205);
+    .flying-away-msg {
+      position: absolute;
+      left: calc(50% - 200px);
+      top: 20%;
+      z-index: -1;
+
+      @include flexPosition(center, center);
+
+      width: 400px;
+      height: 150px;
+      border-radius: 30px;
+      font-size: 30px;
+
+      border: 10px solid white;
+      color: white;
+      background: black;
+
+      &::before {
+        @include addContent("Flying Away");
+      }
+    }
+  }
+
+  &.paused {
+    .pauseMenu {
+      position: relative;
+
+      width: 100vw;
+      height: 100vh;
+
+      background-color: black;
+      opacity: 0.5;
+
+      @include flexPosition(center, center);
+
+      .options {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        .resume {
+          @include option(grey, 30px, "Resume");
+        }
+        .restart {
+          @include option(grey, 30px, "Restart");
+        }
+        .controls {
+          @include option(grey, 30px, "Controls");
+        }
+      }
+    }
+
+    .flying-away-msg,
+    .duck-container,
+    .dog-container,
+    .aim-container,
+    .tree-container,
+    .ground-container,
+    .hud {
+      opacity: 0;
+    }
+  }
+
+  .controls-info {
+    position: absolute;
+    width: 500px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    border-radius: 15px;
+    border: 5px solid black;
+    background-color: #dcdcdc;
+    div {
+      padding: 10px;
+      display: flex;
+      width: 50%;
+      img {
+        margin-right: 200px;
+      }
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .ground-container {
+    @include backPlacement(100vw, 70vh, 0, 8%);
+  }
+
+  .tree-container {
+    @include backPlacement(30vw, 50vh, 10%, 17%);
+    z-index: -20;
+  }
+
+  .hud {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    background: #c96a22;
+    bottom: 0;
+    .duck-hits {
+      @include hud-elements(25%, 50%);
+      .duck-icon {
+        height: 4vh;
+        width: 10vw;
+      }
+    }
+
+    .bullets {
+      @include hud-elements(8%, 10%);
+      .bullet-icon {
+        height: 4vh;
+        width: 10vw;
+      }
+    }
+
+    .score {
+      @include hud-elements(80%, 15%);
+      font-size: 1.5em;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

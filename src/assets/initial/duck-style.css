@@ -1,0 +1,47 @@
+span {
+    position: absolute;
+    display: flex;
+}
+
+.duck-container {
+    position: absolute;
+    width: 10%;
+    height: 8%;
+    bottom: 7%;
+}
+
+.duck-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.dog-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.dog-container {
+    position: absolute;
+    height: 20%;
+    width: 20%;
+    left: 5%;
+    bottom: 6%;
+    z-index: 200;
+}
+
+.aim-container {
+    position: absolute;
+    width: 5%;
+    height: 5%;
+    left: 50%;
+    top: 50%;
+    z-index: 5000;
+}
+
+.aim-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
