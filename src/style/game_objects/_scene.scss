@@ -125,16 +125,16 @@
     .duck-hits {
       @include hud-elements(25%, 50%);
       .duck-icon {
-        height: 4vh;
-        width: 10vw;
+        height: 5vh;
+        width: 10%;
       }
     }
 
     .bullets {
       @include hud-elements(8%, 10%);
       .bullet-icon {
-        height: 4vh;
-        width: 10vw;
+        height: 5vh;
+        width: 30%;
       }
     }
 

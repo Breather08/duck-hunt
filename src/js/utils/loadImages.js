@@ -7,12 +7,13 @@ export const imageOnload = (callback) => {
   // eslint-disable-next-line no-plusplus
   counters.imagesOnLoadCounter++;
   if (counters.imagesOnLoadCounter === counters.imagesCounter) {
-    callback();
+    setTimeout(() => {
+      callback();
+    }, 1000);
   }
 };
 
-export const loadImages = async (frames, callback) => {
-
+export const loadImages = (frames, callback) => {
   frames.forEach((frame) => {
     const images = Object.values(frame).flat();
     counters.imagesCounter += images.length;
